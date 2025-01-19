@@ -11,24 +11,30 @@
 </head>
 <body>
     <header>
-        <div class="container header">
+        <div class="container-header">
             <h1>Where in the world?</h1>
-            <button class="dark-mode-toggle">🌙 Dark Mode</button>
+            <button class="dark-mode-toggle"><ion-icon name="moon-outline"></ion-icon> Dark Mode</button>
         </div>
     </header>
 
     <main class="container">
         
         <div class="control-filters">
-            <input type="text" class="search-country" placeholder="Search for a country...">
-            <select class="filter-country">
-                <option value="">Filter by Region</option>
-                <option value="Africa">Africa</option>
-                <option value="America">America</option>
-                <option value="Asia">Asia</option>
-                <option value="Europe">Europe</option>
-                <option value="Oceania">Oceania</option>
-            </select>
+            <div class="search-container">
+                <ion-icon name="search-sharp"></ion-icon>
+                <input type="text" class="search-country" placeholder="Search for a country...">
+            </div>
+            <div class="filter-container">
+                <select class="filter-country">
+                    <option value="">Filter by Region</option>
+                    <option value="Africa">Africa</option>
+                    <option value="America">America</option>
+                    <option value="Asia">Asia</option>
+                    <option value="Europe">Europe</option>
+                    <option value="Oceania">Oceania</option>
+                </select>
+                <ion-icon name="chevron-down-sharp"></ion-icon>
+            </div>
         </div>
 
         <section class="countries">
@@ -68,6 +74,8 @@
         </section>
 
     </main>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="scripts.js"></script>
 </body>
 </html>

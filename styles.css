@@ -1,0 +1,126 @@
+:root {
+    --background-color: hsl(0, 0%, 98%);
+    --text-color: hsl(200, 15%, 8%);
+    --elements-color: hsl(0, 0%, 100%);
+    --input-color: hsl(0, 0%, 52%);
+}
+
+.dark-mode {
+    --background-color: hsl(207, 26%, 17%);
+    --text-color: hsl(0, 0%, 100%);
+    --elements-color: hsl(209, 23%, 22%);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+body {
+    background: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.9rem 1rem;
+    background: var(--elements-color);
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: medium;
+    font-weight: 900;
+}
+
+.dark-mode-toggle {
+    border: none;
+    background: transparent;
+    font-weight: 600;
+}
+
+.container {
+    background: var(--background-color);
+    margin-top: 20px;
+}
+
+.control-filters {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-container {
+    position: relative; /* Necesario para posicionar el ícono */
+    margin: 1.5rem 0.75rem;
+    background: var(--elements-color);
+    border-radius: 8px;
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center; /* Alinea verticalmente el contenido */
+    padding: 0.5rem 2.5rem; /* Espaciado interno */
+}
+
+.search-container ion-icon {
+    position: absolute;
+    left: 2rem; /* Ubicación horizontal del ícono */
+    color: var(--input-color);
+    font-size: 1.3rem;
+}
+
+.search-country {
+    flex-grow: 1; /* Input ocupa todo el espacio restante */
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: var(--text-color);
+    padding: 0.5rem 0.5rem 0.5rem 2.5rem; /* Espacio para evitar superposición con el ícono */
+    margin: 0;
+}
+
+.search-country::placeholder {
+    color: var(--input-color);
+    font-size: 0.9rem;
+}
+
+.filter-container {
+    position: relative;
+    display: inline-block; /* Para mantener los elementos alineados */
+    width: 100%;
+}
+
+.filter-country {
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0.75rem;
+    background: var(--elements-color);
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    outline: none;
+    cursor: pointer;
+    appearance: none; /* Oculta la flecha nativa */
+    -webkit-appearance: none; /* Para Safari y Chrome */
+    -moz-appearance: none; /* Para Firefox */
+    max-width: 200px;
+    width: 100%;
+    padding-right: 2.5rem;
+    font-weight: 600;
+}
+
+.filter-container ion-icon {
+    position: absolute;
+    left: 11.5rem;
+    top: 50%; /* Centrado vertical */
+    transform: translateY(-50%); /* Ajuste fino para centrarlo */
+    font-size: 0.7rem;
+    color: var(--text-color);
+    pointer-events: none; /* Asegura que el icono no interfiera con la interacción */
+}
+
+
+
+
