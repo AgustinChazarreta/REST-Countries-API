@@ -33,7 +33,7 @@ body {
     box-shadow: 0 1px 15px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
+.header-title {
     font-size: medium;
     font-weight: 900;
 }
@@ -111,6 +111,7 @@ h1 {
     font-weight: 600;
 }
 
+/* Flecha Icon del select */
 .filter-container ion-icon {
     position: absolute;
     left: 11.5rem;
@@ -121,6 +122,37 @@ h1 {
     pointer-events: none; /* Asegura que el icono no interfiera con la interacción */
 }
 
+.filter-country option {
+    font-size: 105%;
+}
 
+.countries {
+    display: grid;
+    grid-template-columns: 75%;
+    gap: 2.5rem;
+    justify-content: center;
+    padding: 3% 0;
+    margin-bottom: 20%;
+}
 
+.country-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 7px;
+    overflow: hidden;
+    background: var(--elements-color);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+}
 
+.card-body {
+    padding: 1.5rem 1.5rem 2.5rem 1.5rem;
+}
+
+.country-name {
+    margin-bottom: 8px;
+    font-weight: 900;
+}
+
+.card-body span {
+    font-weight: 700;
+}
