@@ -1,23 +1,42 @@
 document.addEventListener("DOMContentLoaded", () => {
     const countriesContainer = document.querySelector("#countries-container");
-
+    const baseAPIUrl = `https://restcountries.com/v3.1/all`;    
+    let currentAPIUrl = baseAPIUrl;  
+    
     // Capturo los elementos HTML (botones y página actual)
     const prevBtn = document.getElementById("prev-btn");
     const nextBtn = document.getElementById("next-btn");
     const pageInfo = document.getElementById("page-info");
-
+    
     // Variables de control
     let currentPage = 1;
-    const limit = 8;
-    let totalProductos = 0;
+    const limit = 5;
+    let totalCountries = 0;
+    
+    // Valores del filter-country
+    let selectedRegion = "All countries";
+    const filterCountry = document.querySelector(".filter-country");
+    
+    filterCountry.addEventListener("change", () => {
+        const newRegion = filterCountry.value;
+        // Solo actualiza si cambia la región
+        if (newRegion !== selectedRegion) { 
+            selectedRegion = newRegion;
+            currentAPIUrl = (selectedRegion && selectedRegion !== "All countries")
+                ? `https://restcountries.com/v3.1/region/${selectedRegion.toLowerCase()}`
+                : baseAPIUrl; // Restablece la URL base si no hay región seleccionada
+            currentPage = 1; // Reinicia la paginación
+            fetchCountries(currentPage); // Actualiza la lista
+        }
+    });
 
     function fetchCountries(page) {
         const skip = (page - 1) * limit;
 
-        fetch(`https://restcountries.com/v3.1/all`)
+        fetch(currentAPIUrl)
             .then((response) => response.json())
             .then((data) => {
-                totalProductos = data.length; // Actualiza el total de países
+                totalCountries = data.length; // Actualiza el total de países
                 const countries = ordenarPorClave(data, "name.common");
                 const paginatedData = countries.slice(skip, skip + limit);
 
@@ -54,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function actualizarInfoPaginacion() {
         pageInfo.textContent = `Página ${currentPage}`;
         prevBtn.disabled = currentPage === 1;
-        nextBtn.disabled = (currentPage * limit) >= totalProductos;
+        nextBtn.disabled = (currentPage * limit) >= totalCountries;
     }
 
     function ordenarPorClave(array, clave) {
@@ -84,3 +103,4 @@ document.addEventListener("DOMContentLoaded", () => {
         fetchCountries(currentPage);
     });
     
+
