@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Variables de control
     let currentPage = 1;
-    const limit = 5;
+    const limit = 8;
     let totalCountries = 0;
     
     // Valores del filter-country
@@ -59,6 +59,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                     `;
 
+                    countryCard.addEventListener("click", () => {
+                        console.log(`click en el país ${country.name.common}`);
+                        // Redirigir a la nueva página con el nombre del país como parámetro
+                        console.log(country);
+                        if(country.ccn3 !== undefined){window.location.href =`country.html?ccn3=${encodeURIComponent(country.ccn3)}`}
+                        else{window.location.href =`country.html?cca3=${encodeURIComponent(country.cca3)}`}
+                    });
+
+
                     // Añadir la card al contenedor
                     countriesContainer.appendChild(countryCard);
                 });
@@ -98,7 +107,6 @@ document.addEventListener("DOMContentLoaded", () => {
         currentPage++;
         fetchCountries(currentPage);
     });
-
 
         fetchCountries(currentPage);
     });

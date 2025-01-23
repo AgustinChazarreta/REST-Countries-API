@@ -1,0 +1,69 @@
+@import url('styles.css');
+
+.country-flag {
+    display: flex;
+    width: 90%; /* La imagen ocupa todo el ancho del contenedor */
+    height: 15rem;
+    justify-content: center;    
+}
+
+#country-page-div {
+    display: flex;
+    flex-direction: column; /* Organiza los elementos en una columna */
+    align-items: flex-start; /* Centra los elementos horizontalmente */
+    margin: auto; /* Centra el contenedor en la página */
+    width: 85%;
+    margin-top: 2rem;
+}
+
+.back-btn {
+    margin-bottom: 4rem !important;
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.back-btn ion-icon {
+    font-size: large;
+}
+
+.country-flag {
+    width: 100%; /* Ancho máximo de la imagen */
+    height: 500px;
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-bottom: 2rem;
+    align-self: center; /* Centra los elementos horizontalmente */
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.2);
+}
+
+#borders-btn-container {
+    flex-wrap: wrap; /* Permite que los botones se envuelvan en varias líneas */
+    margin-top: 0.2rem; /* Espaciado superior */
+    margin-bottom: 20%;
+}
+
+#country-page-container button {
+    margin: 5px; /* Espaciado entre los botones */
+    padding: 10px 15px; /* Espaciado interno de los botones */
+    background-color: var(--elements-color); /* Color de fondo de los botones */
+    color: var(--text-color); /* Color del texto */
+    border: solid 0.1rem #bfbfbf; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s; /* Transición suave para el color de fondo */
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.1);
+}
+
+#country-page-container button:hover {
+    background-color: var(--input-color); /* Color de fondo al pasar el mouse */
+}
+
+.first-section p, .second-section p {
+    margin-bottom: 0.25rem; /* Espacio entre los párrafos */
+}
+
+.first-section, .second-section {
+    margin-bottom: 2.5rem; /* Espacio entre los párrafos */
+}
+
