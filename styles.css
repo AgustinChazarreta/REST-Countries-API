@@ -28,7 +28,8 @@ body {
 .container-header {
     display: flex;
     justify-content: space-between;
-    padding: 1.9rem 1rem;
+    align-items: center;
+    padding: 1.9rem 1.2rem;
     background: var(--elements-color);
     box-shadow: 0 1px 15px rgba(0, 0, 0, 0.1);
 }
@@ -42,6 +43,18 @@ body {
     border: none;
     background: transparent;
     font-weight: 600;
+    margin: 5px; /* Espaciado entre los botones */
+    padding: 10px 15px; /* Espaciado interno de los botones */
+    color: var(--text-color); /* Color del texto */
+    border: solid 0.1rem #bfbfbf; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s; /* Transición suave para el color de fondo */
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode-toggle:hover {
+    background: var(--input-color);
 }
 
 .container {
@@ -68,7 +81,7 @@ body {
 .search-container ion-icon {
     position: absolute;
     left: 2rem; /* Ubicación horizontal del ícono */
-    color: var(--input-color);
+    color: var(--text-color);
     font-size: 1.3rem;
 }
 
@@ -80,10 +93,11 @@ body {
     color: var(--text-color);
     padding: 0.5rem 0.5rem 0.5rem 2.5rem; /* Espacio para evitar superposición con el ícono */
     margin: 0;
+    background: transparent;
 }
 
 .search-country::placeholder {
-    color: var(--input-color);
+    color: var(--text-color);
     font-size: 0.9rem;
 }
 
@@ -96,6 +110,7 @@ body {
 .filter-country {
     padding: 1rem 1.5rem;
     margin: 1.5rem 0.75rem;
+    color: var(--text-color);
     background: var(--elements-color);
     border: none;
     border-radius: 8px;
@@ -109,6 +124,7 @@ body {
     width: 100%;
     padding-right: 2.5rem;
     font-weight: 600;
+    font-size: 0.9rem;
 }
 
 /* Flecha Icon del select */
@@ -123,7 +139,7 @@ body {
 }
 
 .filter-country option {
-    font-size: 105%;
+    font-size: 0.9rem;
 }
 
 #countries-container {
@@ -141,7 +157,7 @@ body {
     border-radius: 7px;
     overflow: hidden;
     background: var(--elements-color);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .country-flag {

@@ -1,12 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+    const darkModeToggle = document.querySelector('.dark-mode-toggle');
+    const body = document.body;
+
     const params = new URLSearchParams(window.location.search);
     let countryCode = params.get("ccn3") !== null ? params.get("ccn3") : params.get("cca3");
     
     const countryContainer = document.querySelector("#country-page-container");
     const APIUrl = `https://restcountries.com/v3.1/alpha/`+countryCode;
-    
+
     function fetchCountryPage() {
+        console.log(APIUrl);
         fetch(APIUrl)
         .then((response) => response.json())
         .then((data) => {
@@ -143,6 +147,30 @@ document.addEventListener("DOMContentLoaded", () => {
         // Añadir el contenedor de botones de países fronterizos al contenedor principal
         countryContainer.appendChild(bordersBtnContainer);
     }
+
+
+    // Verifica si el modo oscuro está activado en el almacenamiento local
+    if (localStorage.getItem('dark-mode') === 'enabled') {
+        body.classList.add('dark-mode');
+        darkModeToggle.innerHTML = `<ion-icon class="toggle-icon" name="sunny-outline"></ion-icon> Light Mode`;// Cambia el ícono al cargar
+    }else {darkModeToggle.innerHTML = `<ion-icon class="toggle-icon" name="moon-outline"></ion-icon> Dark Mode`;}
+    
+    
+    // Cambia el modo al hacer clic en el botón
+    darkModeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+    
+        // Actualiza el ícono según el modo actual
+        if (body.classList.contains('dark-mode')) {
+            darkModeToggle.innerHTML = `<ion-icon class="toggle-icon" name="sunny-outline"></ion-icon> Light Mode`; // Cambia el texto a "Light Mode"
+            localStorage.setItem('dark-mode', 'enabled'); // Guarda la preferencia
+        } else {
+            darkModeToggle.innerHTML = `<ion-icon class="toggle-icon" name="moon-outline"></ion-icon> Dark Mode`; // Cambia el texto a "Dark Mode"
+            localStorage.setItem('dark-mode', 'disabled'); // Guarda la preferencia
+        }
+    });
+
+
 
         fetchCountryPage();
 });
