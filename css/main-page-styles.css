@@ -29,20 +29,24 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.9rem 1.2rem;
+    padding: 1.3rem clamp(1rem, 1vw + 4.5vw, 6rem);
     background: var(--elements-color);
     box-shadow: 0 1px 15px rgba(0, 0, 0, 0.1);
 }
 
 .header-title {
     font-size: medium;
+    font-size: clamp(0.5rem, 2vw + 0.5rem, 2rem);
     font-weight: 900;
 }
 
 .dark-mode-toggle {
-    border: none;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
     background: transparent;
     font-weight: 600;
+    font-size: clamp(0.5rem, 1vw + 0.5rem, 0.9rem);
     margin: 5px; /* Espaciado entre los botones */
     padding: 10px 15px; /* Espaciado interno de los botones */
     color: var(--text-color); /* Color del texto */
@@ -50,26 +54,36 @@ body {
     border-radius: 5px; /* Bordes redondeados */
     cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
     transition: background-color 0.3s; /* Transición suave para el color de fondo */
-    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.3);
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    touch-action: manipulation;
+    will-change: transform;
 }
 
 .dark-mode-toggle:hover {
     background: var(--input-color);
+    transform: translateY(-2px);
+}
+
+.dark-mode-toggle:active {
+    box-shadow: none;
+    transform: translateY(0);
 }
 
 .container {
     background: var(--background-color);
-    margin-top: 20px;
+    margin-top: 2rem;
 }
 
 .control-filters {
     display: flex;
     flex-direction: column;
+    margin: 1.9rem clamp(1rem, 1vw + 4.5vw, 6rem);
+    gap: 2.8rem;
 }
 
 .search-container {
-    position: relative; /* Necesario para posicionar el ícono */
-    margin: 1.5rem 0.75rem;
     background: var(--elements-color);
     border-radius: 8px;
     box-shadow: 0 1px 15px rgba(0, 0, 0, 0.2);
@@ -79,73 +93,50 @@ body {
 }
 
 .search-container ion-icon {
-    position: absolute;
-    left: 2rem; /* Ubicación horizontal del ícono */
     color: var(--text-color);
     font-size: 1.3rem;
 }
 
 .search-country {
-    flex-grow: 1; /* Input ocupa todo el espacio restante */
     border: none;
     outline: none;
-    font-size: 1rem;
+    font-size: clamp(0.5rem, 1vw + 0.5rem, 0.9rem);
     color: var(--text-color);
     padding: 0.5rem 0.5rem 0.5rem 2.5rem; /* Espacio para evitar superposición con el ícono */
     margin: 0;
     background: transparent;
+    width: 100%;
+    font-weight: 600;
 }
 
 .search-country::placeholder {
     color: var(--text-color);
-    font-size: 0.9rem;
-}
-
-.filter-container {
-    position: relative;
-    display: inline-block; /* Para mantener los elementos alineados */
-    width: 100%;
+    font-size: clamp(0.5rem, 1vw + 0.5rem, 1rem);
 }
 
 .filter-country {
     padding: 1rem 1.5rem;
-    margin: 1.5rem 0.75rem;
     color: var(--text-color);
     background: var(--elements-color);
     border: none;
     border-radius: 8px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    outline: none;
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    appearance: none; /* Oculta la flecha nativa */
-    -webkit-appearance: none; /* Para Safari y Chrome */
-    -moz-appearance: none; /* Para Firefox */
     max-width: 200px;
     width: 100%;
     padding-right: 2.5rem;
     font-weight: 600;
-    font-size: 0.9rem;
-}
-
-/* Flecha Icon del select */
-.filter-container ion-icon {
-    position: absolute;
-    left: 11.5rem;
-    top: 50%; /* Centrado vertical */
-    transform: translateY(-50%); /* Ajuste fino para centrarlo */
-    font-size: 0.7rem;
-    color: var(--text-color);
-    pointer-events: none; /* Asegura que el icono no interfiera con la interacción */
+    font-size: clamp(0.5rem, 1vw + 0.5rem, 1rem);
 }
 
 .filter-country option {
-    font-size: 0.9rem;
+    font-size: clamp(0.5rem, 1vw + 0.5rem, 1rem);
 }
 
 #countries-container {
     display: grid;
     grid-template-columns: 75%;
-    gap: 2.5rem;
+    gap: clamp(2.5rem, 5vw + 2rem, 3rem);
     justify-content: center;
     padding: 3% 0;
     margin-bottom: 5%;
@@ -158,7 +149,7 @@ body {
     overflow: hidden;
     background: var(--elements-color);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    height: 23rem;
+    height: 22rem;
 }
 
 .country-flag {
@@ -169,26 +160,32 @@ body {
 
 .card-body {
     padding: 1.5rem 1.5rem 2.5rem 1.5rem;
-
 }
 
 .country-name {
-    margin-bottom: 8px;
+    margin-bottom: clamp(1px, 2vw + 1px, 12px);;
     font-weight: 900;
+    font-size: clamp(1.1rem, 2vw + 0.5rem, 1.4rem);
+    line-height: 1.1;
 }
 
 .card-body span {
     font-weight: 700;
 }
 
-.page {
+.card-body p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.pagination {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     margin-bottom: 15%;
 }
 
-.page button  {
+.pagination button  {
     appearance: none;
     background-color: transparent;
     border: 0.1em solid var(--text-color);
@@ -210,22 +207,23 @@ body {
     -webkit-user-select: none;
     touch-action: manipulation;
     will-change: transform;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-.page button:disabled {
+.pagination button:disabled {
     pointer-events: none;
     border: 0.1em solid var(--elements-color);
     color: var(--input-color);
 }
 
-.page button:hover {
+.pagination button:hover {
     color: var(--background-color);
     background-color: var(--text-color);
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
     transform: translateY(-2px);
 }
 
-.page button:active {
+.pagination button:active {
     box-shadow: none;
     transform: translateY(0);
 }
@@ -234,4 +232,46 @@ body {
     color: var(--text-color);
     font-size: 16px;
     font-weight: 700;
+}
+
+@media (min-width: 600px){
+    .search-container {
+        width: 40%;
+    }
+    
+    .control-filters {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;        
+    }
+
+    #countries-container {
+        grid-template-columns: repeat(2, 260px);
+    }
+    .pagination {
+        margin-bottom: 4%;
+    }
+}
+
+@media (min-width: 900px){
+    #countries-container {
+    grid-template-columns: repeat(3, 260px);
+    margin-bottom: 2%;
+    }
+
+    .country-card {
+        height: 24rem;
+    }
+
+    .card-body p {
+        line-height: 1.7;
+    }
+
+}
+
+@media (min-width: 1200px){
+    #countries-container {
+    grid-template-columns: repeat(4, 260px);
+    }
+
 }

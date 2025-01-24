@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REST Countries API</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/main-page-styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
     <header>
         <div class="container-header">
             <h1 class="header-title">Where in the world?</h1>
-            <button class="dark-mode-toggle"></button>
+            <button class="dark-mode-toggle" aria-label="Toggle dark mode"></button>
         </div>
     </header>
 
@@ -22,34 +22,33 @@
         <div class="control-filters">
             <div class="search-container">
                 <ion-icon name="search-sharp"></ion-icon>
-                <input type="text" class="search-country" placeholder="Search for a country...">
+                <input type="text" class="search-country" placeholder="Search for a country..." aria-label="Search for a country">
             </div>
             <div class="filter-container">
-                <select class="filter-country">
+                <select class="filter-country" aria-label="Filter by Region">
                     <option value="" hidden>Filter by Region</option>
-                    <option value="All countries" >All countries</option>
+                    <option value="All countries">All countries</option>
                     <option value="Africa">Africa</option>
                     <option value="America">America</option>
                     <option value="Asia">Asia</option>
                     <option value="Europe">Europe</option>
                     <option value="Oceania">Oceania</option>
                 </select>
-                <ion-icon name="chevron-down-sharp"></ion-icon>
             </div>
         </div>
 
-        <div id="countries-container">
-            <!--Contenedor con todas las cards-->
+        <div id="countries-container" class="countries-container">
+            <!-- Container for all country cards -->
         </div>
-        <div class="page">
-            <button id="prev-btn" aria-label="Página anterior">Anterior</button>
-            <span id="page-info"></span>
-            <button id="next-btn" aria-label="Página siguiente">Siguiente</button>
+        <div class="pagination">
+            <button id="prev-btn" aria-label="Previous page">Previous</button>
+            <span id="page-info" class="page-info"></span>
+            <button id="next-btn" aria-label="Next page">Next</button>
         </div>
     </main>
     
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="scripts.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
