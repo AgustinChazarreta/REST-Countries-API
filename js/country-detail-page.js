@@ -30,34 +30,41 @@ document.addEventListener("DOMContentLoaded", () => {
             
             countryPage.innerHTML = `
             <button class="back-btn"><ion-icon name="arrow-back-outline"></ion-icon>Back</button>
-            <img class="country-flag" src="${jsonCountry.flags.svg}" alt="${jsonCountry.flags.alt}">
-            <h1>${jsonCountry.name.common}</h1>
-            <div class="first-section">
-                <p><strong>Native Name:</strong> ${firstNativeName}</p>
-                <p><strong>Population:</strong> ${jsonCountry.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
-                <p><strong>Region:</strong> ${jsonCountry.region}</p>
-                <p><strong>Sub Region:</strong> ${jsonCountry.subregion}</p>
-                <p><strong>Capital:</strong> ${jsonCountry.capital}</p>
-            </div>
-            <div class="second-section">
-                <p><strong>Top Level Domain:</strong> ${jsonCountry.tld}</p>
-                <p><strong>Currencies:</strong> ${currency}</p>
-                <p><strong>Languages:</strong> ${languages}</p>
-            </div>
-            <div class="third-section">
-                <h2>Border Countries:</h2>
+            <div class="country-details-container">
+                <img class="country-flag" src="${jsonCountry.flags.svg}" alt="${jsonCountry.flags.alt}">
+                <div class="country-title-details">
+                    <h1>${jsonCountry.name.common}</h1>
+                    <div class="country-details">
+                        <div class="first-section">
+                            <p><strong>Native Name:</strong> ${firstNativeName}</p>
+                            <p><strong>Population:</strong> ${jsonCountry.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+                            <p><strong>Region:</strong> ${jsonCountry.region}</p>
+                            <p><strong>Sub Region:</strong> ${jsonCountry.subregion}</p>
+                            <p><strong>Capital:</strong> ${jsonCountry.capital}</p>
+                        </div>
+                        <div class="second-section">
+                            <p><strong>Top Level Domain:</strong> ${jsonCountry.tld}</p>
+                            <p><strong>Currencies:</strong> ${currency}</p>
+                            <p><strong>Languages:</strong> ${languages}</p>
+                        </div>
+                    </div>
+                    <div class="third-section">
+                        <h2>Border Countries:</h2>
+                    </div>
+                </div>
             </div>`;
             
             // Obtener y mostrar los países fronterizos
             getBorderCountries(jsonCountry, bordersBtnContainer);
-            // Añadir el contenedor de botones de países fronterizos al countryPage
-            countryPage.appendChild(bordersBtnContainer);
+            
             // Al tocar el botón de back, se vuelve a la página principal
             const backBtn = countryPage.querySelector(".back-btn");
             backBtn.addEventListener("click", () => window.location.assign("index.html"));
-
+            
             // Añadir la card al contenedor
             countryContainer.appendChild(countryPage);
+            const countryTitleDetails = countryContainer.querySelector(".country-title-details");
+            countryTitleDetails.appendChild(bordersBtnContainer);
         });
     }
     
@@ -131,8 +138,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         borderButton.addEventListener("click", () => {
                             // Al hacer clic en el botón se redirige a la página del país seleccionado
                             window.location.href = borderCountry.ccn3 
-                            ? `country.html?ccn3=${borderCountry.ccn3}` 
-                            : `country.html?cca3=${borderCountry.cca3}`;
+                            ? `country-detail-page.html?ccn3=${borderCountry.ccn3}` 
+                            : `country-detail-page.html?cca3=${borderCountry.cca3}`;
                         });
                         bordersBtnContainer.appendChild(borderButton);
                     })

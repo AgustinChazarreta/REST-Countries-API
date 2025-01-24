@@ -2,22 +2,25 @@
 
 .country-flag {
     display: flex;
-    width: 90%; /* La imagen ocupa todo el ancho del contenedor */
-    height: 15rem;
-    justify-content: center;    
+    width: 80vw; /* La imagen ocupa el 80% del ancho del contenedor */
+    height: auto;
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.2);
+}
+
+#country-page-container {
+    display: flex;
+    justify-content: center;
 }
 
 #country-page-div {
     display: flex;
     flex-direction: column; /* Organiza los elementos en una columna */
-    align-items: flex-start; /* Centra los elementos horizontalmente */
-    margin: auto; /* Centra el contenedor en la página */
-    width: 85%;
     margin-top: 2rem;
+    padding: 0 2rem;
 }
 
 .back-btn {
-    margin-bottom: 4rem !important;
+    margin-bottom: 3rem; /* Espaciado inferior */
     align-self: flex-start;
     display: flex;
     align-items: center;
@@ -28,27 +31,31 @@
     font-size: large;
 }
 
-.country-flag {
-    width: 100%; /* Ancho máximo de la imagen */
-    height: 500px;
-    height: auto; /* Mantiene la proporción de la imagen */
-    margin-bottom: 2rem;
-    align-self: center; /* Centra los elementos horizontalmente */
-    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.2);
+.country-title-details h1 {
+    padding: 2rem 0 1rem 0;
+}
+
+.country-details-container {
+    display: flex;
+    flex-direction: column; /* Organiza los elementos en una columna */
+    margin: 2rem 0;
 }
 
 #borders-btn-container {
+    display: flex; /* Asegúrate de que los botones se alineen correctamente */
     flex-wrap: wrap; /* Permite que los botones se envuelvan en varias líneas */
     margin-top: 0.2rem; /* Espaciado superior */
-    margin-bottom: 20%;
+}
+
+#borders-btn-container button {
+    margin: 0.5rem;
 }
 
 #country-page-container button {
-    margin: 5px; /* Espaciado entre los botones */
     padding: 10px 15px; /* Espaciado interno de los botones */
     background-color: var(--elements-color); /* Color de fondo de los botones */
     color: var(--text-color); /* Color del texto */
-    border: solid 0.1rem #bfbfbf; /* Sin borde */
+    border: solid 0.1rem #bfbfbf; /* Borde */
     border-radius: 5px; /* Bordes redondeados */
     cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
     transition: background-color 0.3s; /* Transición suave para el color de fondo */
@@ -64,6 +71,46 @@
 }
 
 .first-section, .second-section {
-    margin-bottom: 2.5rem; /* Espacio entre los párrafos */
+    margin-bottom: 2.5rem; /* Espacio entre las secciones */
 }
 
+@media (min-width: 950px) {  
+    #country-page-div {
+        width: 93%;
+    }
+    
+    .back-btn {
+        margin-bottom: 0rem; /* Espaciado inferior */
+    }
+    
+    .country-details-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 2rem 0;
+        justify-content: space-between;
+    }
+    
+    .country-title-details {
+        display: flex;
+        flex-direction: column;
+        width: 42vw;
+    }
+    
+    .country-details {
+        display: flex;
+    }
+    
+    .second-section {
+        padding-left: 5rem;
+    }
+
+    .country-flag {
+        width: 45vw; /* Mantiene el ancho en pantallas más grandes */
+        max-width: 520px; /* Ancho máximo */
+    }
+    
+    #borders-btn-container {
+        max-width: 480px;        
+    }
+}
