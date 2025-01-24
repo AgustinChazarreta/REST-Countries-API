@@ -149,28 +149,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // Verifica si el modo oscuro está activado en el almacenamiento local
-    if (localStorage.getItem('dark-mode') === 'enabled') {
-        body.classList.add('dark-mode');
-        darkModeToggle.innerHTML = `<ion-icon class="toggle-icon" name="sunny-outline"></ion-icon> Light Mode`;// Cambia el ícono al cargar
-    }else {darkModeToggle.innerHTML = `<ion-icon class="toggle-icon" name="moon-outline"></ion-icon> Dark Mode`;}
-    
-    
-    // Cambia el modo al hacer clic en el botón
-    darkModeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-    
-        // Actualiza el ícono según el modo actual
-        if (body.classList.contains('dark-mode')) {
-            darkModeToggle.innerHTML = `<ion-icon class="toggle-icon" name="sunny-outline"></ion-icon> Light Mode`; // Cambia el texto a "Light Mode"
-            localStorage.setItem('dark-mode', 'enabled'); // Guarda la preferencia
-        } else {
-            darkModeToggle.innerHTML = `<ion-icon class="toggle-icon" name="moon-outline"></ion-icon> Dark Mode`; // Cambia el texto a "Dark Mode"
-            localStorage.setItem('dark-mode', 'disabled'); // Guarda la preferencia
-        }
-    });
-
-
+    function changeDarkMode(){
+        // Verifica si el modo oscuro está activado en el almacenamiento local
+        if (localStorage.getItem('dark-mode') === 'enabled') {
+            body.classList.add('dark-mode');
+            darkModeToggle.innerHTML = `<ion-icon class="toggle-icon" name="moon-outline"></ion-icon> Dark Mode`;// Cambia el ícono al cargar
+        }else {darkModeToggle.innerHTML = `<ion-icon class="toggle-icon" name="sunny-outline"></ion-icon> Light Mode`;}
+        
+        
+        // Cambia el modo al hacer clic en el botón
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+        
+            // Actualiza el ícono según el modo actual
+            if (body.classList.contains('dark-mode')) {
+                darkModeToggle.innerHTML = `<ion-icon class="toggle-icon" name="moon"></ion-icon> Dark Mode`; // Cambia el texto a "Dark Mode"
+                localStorage.setItem('dark-mode', 'enabled'); // Guarda la preferencia
+            } else {
+                darkModeToggle.innerHTML = `<ion-icon class="toggle-icon" name="sunny-outline"></ion-icon> Light Mode`; // Cambia el texto a "Light Mode"
+                localStorage.setItem('dark-mode', 'disabled'); // Guarda la preferencia
+            }
+        });
+    }
 
         fetchCountryPage();
+        changeDarkMode();
 });
