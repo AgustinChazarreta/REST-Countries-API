@@ -51,13 +51,13 @@ document.addEventListener("DOMContentLoaded", () => {
         
         skip = (currentPage - 1) * limit;
         displayCountries(filteredCountries.slice(skip, skip + limit));
-        actualizarInfoPaginacion(); 
+        updatePaginationInfo(); 
     });
     
-    // Function to fetch countries from the API
     function fetchCountries(page) {
+    // Fetch countries from the API
         skip = (page - 1) * limit;
-    
+
         fetch(currentAPIUrl)
             .then((response) => response.json())
             .then((data) => {
@@ -71,23 +71,23 @@ document.addEventListener("DOMContentLoaded", () => {
                         country.name.common.toLowerCase().includes(searchInput.value.toLowerCase())
                     );
                     totalCountries = filteredCountries.length; 
-                    countries = ordenarPorClave(filteredCountries, "name.common");
+                    countries = sortByKey(filteredCountries, "name.common");
                 } else {
-                    countries = ordenarPorClave(allCountries, "name.common");
+                    countries = sortByKey(allCountries, "name.common");
                 } 
                 
                 const paginatedData = countries.slice(skip, skip + limit);
                 countriesContainer.innerHTML = "";
                 displayCountries(paginatedData);
-                actualizarInfoPaginacion();
+                updatePaginationInfo();
             })
             .catch((error) => console.error("Error fetching products:", error));
     }
-    
-    // Function to display countries in the container
+
     function displayCountries(countries) {
+    // Display countries in the container
         countriesContainer.innerHTML = "";
-    
+
         countries.forEach((country) => {
             const countryCard = document.createElement("div");
             
@@ -106,9 +106,9 @@ document.addEventListener("DOMContentLoaded", () => {
             // Event listener for country card click
             countryCard.addEventListener("click", () => {
                 if(country.ccn3 !== undefined){
-                    window.location.href = `country-detail-page.html?ccn3=${encodeURIComponent(country.ccn3)}`;
+                    window.location.href = `/html/country-detail-page.html?ccn3=${encodeURIComponent(country.ccn3)}`;
                 } else {
-                    window.location.href = `country-detail-page.html?cca3=${encodeURIComponent(country.cca3)}`;
+                    window.location.href = `html/country-detail-page.html?cca3=${encodeURIComponent(country.cca3)}`;
                 }
             });
     
@@ -116,31 +116,31 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Function to check if the search input is empty
     function isSearchInputEmpty() {
+    // Check if the search input is empty
         return searchInput.value.trim() === ""; 
     }
 
-    // Function to update pagination information
-    function actualizarInfoPaginacion() {
-        pageInfo.textContent = `Página ${currentPage}`;
+    function updatePaginationInfo() {
+    // Update pagination information
+        pageInfo.textContent = `Page ${currentPage}`;
         prevBtn.disabled = currentPage === 1;
         nextBtn.disabled = (currentPage * limit) >= totalCountries;
     }
 
-    // Function to sort an array by a specified key
-    function ordenarPorClave(array, clave) {
+    function sortByKey(array, key) {
+    // Sort an array by a specified key
         return array.sort((a, b) => {
-        const keys = clave.split(".");
-        const obtenerValor = (obj, keys) => keys.reduce((acc, key) => acc?.[key], obj);
-        const valorA = obtenerValor(a, keys)?.toString().toLowerCase() || "";
-        const valorB = obtenerValor(b, keys)?.toString().toLowerCase() || "";
-        return valorA.localeCompare(valorB);
-    });
+            const keys = key.split(".");
+            const getValue = (obj, keys) => keys.reduce((acc, key) => acc?.[key], obj);
+            const valueA = getValue(a, keys)?.toString().toLowerCase() || "";
+            const valueB = getValue(b, keys)?.toString().toLowerCase() || "";
+            return valueA.localeCompare(valueB);
+        });
     }
 
-    // Function to handle dark mode toggle
     function changeDarkMode(){
+    // Handle dark mode toggle
         if (localStorage.getItem('dark-mode') === 'enabled') {
             body.classList.add('dark-mode');
             darkModeToggle.innerHTML = `<ion-icon class="toggle-icon" name="moon-outline"></ion-icon> Dark Mode`;

@@ -11,7 +11,6 @@
     --elements-color: hsl(209, 23%, 22%);
 }
 
-
 * {
     margin: 0;
     padding: 0;
@@ -25,7 +24,8 @@ body {
     line-height: 1.6;
 }
 
-.container-header {
+/* HEADER */
+.header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -40,6 +40,7 @@ body {
     font-weight: 900;
 }
 
+/* MODE-TOGGLE */
 .dark-mode-toggle {
     display: flex;
     align-items: center;
@@ -50,7 +51,7 @@ body {
     margin: 5px; /* Espaciado entre los botones */
     padding: 10px 15px; /* Espaciado interno de los botones */
     color: var(--text-color); /* Color del texto */
-    border: solid 0.1rem #bfbfbf; /* Sin borde */
+    border: 0.1em solid var(--elements-color);
     border-radius: 5px; /* Bordes redondeados */
     cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
     transition: background-color 0.3s; /* Transición suave para el color de fondo */
@@ -62,8 +63,10 @@ body {
 }
 
 .dark-mode-toggle:hover {
-    background: var(--input-color);
+    background: var(--text-color);
+    color: var(--background-color);
     transform: translateY(-2px);
+    border-color: var(--text-color);
 }
 
 .dark-mode-toggle:active {
@@ -71,12 +74,14 @@ body {
     transform: translateY(0);
 }
 
-.container {
+/* MAIN PAGE CONTAINER */
+.main-container {
     background: var(--background-color);
     margin-top: 2rem;
 }
 
-.control-filters {
+/* FILTERS CONTAINER */
+.filters-container {
     display: flex;
     flex-direction: column;
     margin: 1.9rem clamp(1rem, 1vw + 4.5vw, 6rem);
@@ -88,8 +93,8 @@ body {
     border-radius: 8px;
     box-shadow: 0 1px 15px rgba(0, 0, 0, 0.2);
     display: flex;
-    align-items: center; /* Alinea verticalmente el contenido */
-    padding: 0.5rem 2.5rem; /* Espaciado interno */
+    align-items: center;
+    padding: 0.5rem 2.5rem;
 }
 
 .search-container ion-icon {
@@ -102,7 +107,7 @@ body {
     outline: none;
     font-size: clamp(0.5rem, 1vw + 0.5rem, 0.9rem);
     color: var(--text-color);
-    padding: 0.5rem 0.5rem 0.5rem 2.5rem; /* Espacio para evitar superposición con el ícono */
+    padding: 0.5rem 0.5rem 0.5rem 2.5rem;
     margin: 0;
     background: transparent;
     width: 100%;
@@ -133,6 +138,7 @@ body {
     font-size: clamp(0.5rem, 1vw + 0.5rem, 1rem);
 }
 
+/* COUNTRY-CARDS CONTAINER */
 #countries-container {
     display: grid;
     grid-template-columns: 75%;
@@ -159,9 +165,9 @@ body {
 }
 
 .country-flag {
-    width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+    width: 100%;
     height: 11rem;
-    object-fit: cover; /* La imagen cubrirá el contenedor, manteniendo su relación de aspecto */
+    object-fit: cover; 
 }
 
 .card-body {
@@ -184,6 +190,7 @@ body {
     line-height: 1.5;
 }
 
+/* PAGINATION */
 .pagination {
     display: flex;
     justify-content: space-evenly;
@@ -193,8 +200,8 @@ body {
 
 .pagination button  {
     appearance: none;
-    background-color: transparent;
-    border: 0.1em solid var(--text-color);
+    background-color: var(--elements-color);
+    border: 0.1em solid var(--elements-color);
     border-radius: 0.9375em;
     box-sizing: border-box;
     color: var(--text-color);
@@ -227,6 +234,7 @@ body {
     background-color: var(--text-color);
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
     transform: translateY(-2px);
+    border-color: var(--text-color);
 }
 
 .pagination button:active {
@@ -240,12 +248,13 @@ body {
     font-weight: 700;
 }
 
+/* MEDIA QUERIES */
 @media (min-width: 600px){
     .search-container {
         width: 40%;
     }
     
-    .control-filters {
+    .filters-container {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;        
