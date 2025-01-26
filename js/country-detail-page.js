@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                 // When the back button is clicked, return to the main page
                 const backBtn = countryPage.querySelector(".back-btn");
-                backBtn.addEventListener("click", () => window.location.assign("/index.html"));
+                backBtn.addEventListener("click", () => window.location.assign("../index.html"));
                 
                 // Add the card to the container
                 countryContainer.appendChild(countryPage);
@@ -126,8 +126,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         borderButton.textContent = borderCountry.name.common;
                         borderButton.addEventListener("click", () => {
                             window.location.href = borderCountry.ccn3 
-                                ? `/html/country-detail-page.html?ccn3=${borderCountry.ccn3}` 
-                                : `/html/country-detail-page.html?cca3=${borderCountry.cca3}`;
+                                ? `../html/country-detail-page.html?ccn3=${borderCountry.ccn3}` 
+                                : `../html/country-detail-page.html?cca3=${borderCountry.cca3}`;
                         });
                         bordersBtnContainer.appendChild(borderButton);
                     })

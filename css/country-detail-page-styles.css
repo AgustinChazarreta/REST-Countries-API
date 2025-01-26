@@ -1,4 +1,4 @@
-@import url('main-page-styles.css');
+@import url('./main-page-styles.css');
 
 .country-flag {
     display: flex;

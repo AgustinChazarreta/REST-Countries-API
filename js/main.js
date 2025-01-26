@@ -106,9 +106,9 @@ document.addEventListener("DOMContentLoaded", () => {
             // Event listener for country card click
             countryCard.addEventListener("click", () => {
                 if(country.ccn3 !== undefined){
-                    window.location.href = `/html/country-detail-page.html?ccn3=${encodeURIComponent(country.ccn3)}`;
+                    window.location.href = `../html/country-detail-page.html?ccn3=${encodeURIComponent(country.ccn3)}`;
                 } else {
-                    window.location.href = `html/country-detail-page.html?cca3=${encodeURIComponent(country.cca3)}`;
+                    window.location.href = `../html/country-detail-page.html?cca3=${encodeURIComponent(country.cca3)}`;
                 }
             });
     
