@@ -39,7 +39,7 @@ This project is a web application that allows users to explore information about
 <img src="./images/country-detail-page-screenshot.png" alt="CountryPage Screenshot" width="600" height="300"/>
 
 ### 🌐 Online Demo
-You can explore the project on **[GitHub Pages](https://your-username.github.io/your-repo/)**.
+You can explore the project on **[GitHub Pages](https://agustinchazarreta.github.io/REST-Countries-API/)**.
 Este es el primer párrafo.
 
 
