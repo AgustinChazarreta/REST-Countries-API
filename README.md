@@ -2,15 +2,17 @@
 This project is a solution for the [REST Countries API challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). 
 
 ## Table of contents
-- [Overview](#overview)
-  - [✨ Main Features](#-main-features)
-  - [📷 Screenshot](#-screenshot)
-  - [🌐 Online Demo](#-online-demo)
-- [My process](#my-process)
-  - [🛠 Technologies Used](#-technologies-used)
-  - [📌 Challenges Faced](#-challenges-faced)
-  - [🚀 Future Improvements](#-future-improvements)
-  - [📚 Useful resources](#useful-resources)
+- [🔍 REST Countries API](#-rest-countries-api)
+  - [Table of contents](#table-of-contents)
+  - [Overview](#overview)
+    - [✨ Main Features](#-main-features)
+    - [📷 Screenshots](#-screenshots)
+    - [🌐 Online Demo](#-online-demo)
+  - [My process](#my-process)
+    - [🛠️ Technologies Used](#️-technologies-used)
+    - [📌 Challenges Faced](#-challenges-faced)
+    - [🚀 Future Improvements](#-future-improvements)
+    - [📚 Useful resources](#-useful-resources)
 
 ## Overview
 This project is a web application that allows users to explore information about different countries. It fetches data from the [REST Countries API](https://restcountries.com/) to display details such as the country's name, population, capital, and borders. Users can search for countries using an input field, filter countries by region, and view detailed information about each country on a separate page. Additionally, the app features a theme switcher to toggle between light and dark modes, improving the user experience across different environments.
@@ -31,8 +33,10 @@ This project is a web application that allows users to explore information about
 
 ### 📷 Screenshots
 
-![MainPage Screenshot](./images/main-page-screenshot.png)
-![CountryPage Screenshot](./images/country-detail-page-screenshot.png)
+<img src="./images/main-page-screenshot.png" alt="MainPage Screenshot" width="600" height="480"/>
+<br>
+<br>
+<img src="./images/country-detail-page-screenshot.png" alt="CountryPage Screenshot" width="600" height="300"/>
 
 ### 🌐 Online Demo
 You can explore the project on **[GitHub Pages](https://your-username.github.io/your-repo/)**.
